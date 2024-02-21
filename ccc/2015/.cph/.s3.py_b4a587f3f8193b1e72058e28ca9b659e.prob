@@ -1,0 +1,1 @@
+{"name":"Local: s3","url":"/Users/kevinjosethomas/Documents/Code/Major/ccc/2015/s3.py","tests":[{"id":1707007135686,"input":"4\n3\n4\n1\n1","output":"2"},{"id":1707016300342,"input":"4\n6\n2\n2\n3\n3\n4\n4","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/kevinjosethomas/Documents/Code/Major/ccc/2015/s3.py","group":"local","local":true}
