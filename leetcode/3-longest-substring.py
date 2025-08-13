@@ -56,12 +56,16 @@ class Solution:
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        
-        left = 0
-        right = 0
+        vals = set()
         longest = 0
-        num_repeats = 0
-        table = {}
+        left = 0
 
-        for i, val in enumerate(s):
-            
+        for right in range(len(s)):
+            while s[right] in vals:
+                vals.remove(s[left])
+                left += 1
+
+            vals.add(s[right])
+            longest = max(longest, right - left + 1)
+
+        return longest
