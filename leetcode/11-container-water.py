@@ -40,6 +40,7 @@ class Solution:
 """
 
 # O(n)
+"""
 from typing import List
 
 
@@ -67,3 +68,37 @@ class Solution:
                 right -= 1
 
         return biggest
+        """
+
+# reimplement
+from typing import List
+
+
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+
+        i = 0
+        h = 0
+        largest = 0
+        j = len(heights) - 1
+
+        while i < j:
+
+            if heights[i] < h:
+                i += 1
+                continue
+            if heights[j] < h:
+                j -= 1
+                continue
+
+            h = min(heights[i], heights[j])
+            largest = max(largest, (j - i) * h)
+
+            if heights[i] < heights[j]:
+                i += 1
+                continue
+            else:
+                j -= 1
+                continue
+
+        return largest
