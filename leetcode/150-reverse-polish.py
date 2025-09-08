@@ -1,3 +1,5 @@
+#
+"""
 from typing import List, Union
 
 
@@ -51,3 +53,29 @@ class Solution:
             return Operation(operation, n1, n2)
 
         return parse().solve()
+"""
+
+from typing import List
+
+
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        ops = []
+
+        for token in tokens:
+            if token == "+":
+                ops.append(ops.pop() + ops.pop())
+            elif token == "-":
+                a = ops.pop()
+                b = ops.pop()
+                ops.append(b - a)
+            elif token == "*":
+                ops.append(ops.pop() * ops.pop())
+            elif token == "/":
+                a = ops.pop()
+                b = ops.pop()
+                ops.append(int(b / a))
+            else:
+                ops.append(int(token))
+
+        return ops[0]
